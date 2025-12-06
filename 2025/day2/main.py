@@ -12,7 +12,31 @@ def parse_file(file_path):
 
 def solve_part1(ranges):
 
-    return 0
+    sum = 0
+    for r in ranges:
+        str_numbers = generate_range_numbers_as_strings(r)
+        for n in str_numbers:
+            c_len = len(n)
+
+            # only look at numbers divisable by 2
+            if c_len % 2 != 0:
+                continue
+
+            split_at = int(c_len / 2)
+            left = n[:split_at]
+            right = n[split_at:]
+  
+            # exclude zero as a possible half
+            if right == 0:
+                continue
+
+            if left == right:
+                sum += int(n)
+
+    return sum
+
+def generate_range_numbers_as_strings(r):
+    return list(map(str, range(r[0], r[1]+1)))
 
 if __name__ == '__main__':
     file_path = sys.argv[1]

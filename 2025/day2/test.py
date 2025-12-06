@@ -9,7 +9,7 @@ class TestPart1(unittest.TestCase):
 
     def test_95_115(self):
         result = main.solve_part1([[95, 115]])
-        self.assertEqual(result, 0)
+        self.assertEqual(result, 99)
 
     def test_998_1012(self):
         result = main.solve_part1([[998, 1012]])
@@ -20,11 +20,11 @@ class TestPart1(unittest.TestCase):
         self.assertEqual(result, 1188511885)
 
     def test_222220_222224(self):
-        result = main.solve_part1([[1188511880, 1188511890]])
+        result = main.solve_part1([[222220, 222224]])
         self.assertEqual(result, 222222)
 
     def test_1698522_1698528(self):
-        result = main.solve_part1([[222220, 222224]])
+        result = main.solve_part1([[1698522, 1698528]])
         self.assertEqual(result, 0)
 
     def test_446443_446449(self):
