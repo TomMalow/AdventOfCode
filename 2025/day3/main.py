@@ -12,11 +12,17 @@ def solve_part1(banks):
     for bank in banks:
         result = find_largest_digits(bank, digits)
         sum += int(result)
-    print('sum:', sum)
+    return sum
+
+def solve_part2(banks):
+    sum = 0
+    digits = 12
+    for bank in banks:
+        result = find_largest_digits(bank, digits)
+        sum += int(result)
     return sum
 
 def find_largest_digits(bank, digits):
-    print('bank:', bank, 'digit:', digits)
     if digits == 0:
         return ''
 
@@ -28,12 +34,12 @@ def find_largest_digits(bank, digits):
             current_max = n
             current_max_index = i
 
-    print('max digit', str(current_max))
     return str(current_max) + find_largest_digits(bank[current_max_index+1:], digits-1)
 
 if __name__ == '__main__':
     file_path = sys.argv[1]
-    ranges = parse_file(file_path)
-    result_part1 = solve_part1(ranges)
+    banks = parse_file(file_path)
+    result_part1 = solve_part1(banks)
     print(f"Part 1: {result_part1}, should be 357")
-    
+    result_part2 = solve_part2(banks)
+    print(f"Part 2: {result_part2}, should be 3121910778619") 
